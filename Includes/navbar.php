@@ -22,7 +22,7 @@
                     <a class="nav-link fw-bold" href="display.php">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold" href="me.php">Contact Us</a>
+                    <a class="nav-link fw-bold" href="me.php">Created By</a>
                 </li>
                 <li class="nav-item">
                     <?php if(isset($_SESSION['user_name'])){

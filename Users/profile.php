@@ -48,7 +48,7 @@ include('../Functions/common_function.php');
                             <a class="nav-link fw-bold" href="../display.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="../me.php">Contact Us</a>
+                            <a class="nav-link fw-bold" href="../me.php">Created By</a>
                         </li>
                         <li class="nav-item">
                             <?php if(isset($_SESSION['user_name'])){
@@ -138,7 +138,9 @@ include('../Functions/common_function.php');
                     </div>
                 </div>
         <!-- Footer -->
-            <?php include("../Includes/footer.php")?>
+    <div class="bg-warning text-center p-3">
+        <p class='fw-bold'>Made by <a href="../me.php">Mushfique Tajwar</a></p>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

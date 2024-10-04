@@ -25,7 +25,7 @@
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="../display.php">Products</a>
                     </li>
-                        <a class="nav-link fw-bold" href="#">Contact Us</a>
+                        <a class="nav-link fw-bold" href="../me.php">Created By</a>
                     </li>
                 </ul>
             </div>
@@ -104,7 +104,9 @@
         </div>
     </div>
     <!-- Footer -->
-        <?php include("../Includes/footer.php")?>
+    <div class="bg-warning text-center p-3">
+        <p class='fw-bold'>Made by <a href="../me.php">Mushfique Tajwar</a></p>
+    </div>
 </body>
 </html>
 

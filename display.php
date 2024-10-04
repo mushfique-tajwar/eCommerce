@@ -43,10 +43,10 @@ include('Functions/common_function.php');
                     <div class="col md-10">
                         <div class="bg-light p-2 m-2">
                             <h3 class="text-center fw-bold">
-                                Bing Chilling Store
+                                eCommerce Project
                             </h3>
                             <p class="text-center">
-                                Browser through all our products
+                                Browser through all the dummy products
                             </p>
                         </div>
                         <div class="row">
