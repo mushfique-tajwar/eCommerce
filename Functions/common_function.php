@@ -28,7 +28,6 @@
                 }
         }  
         }
-
     // Getting specific categories
         function getuniquecategories(){
             global $con;
@@ -56,14 +55,13 @@
                                     <p class='card-text'>$product_description</p>
                                     <p class='card-text'>Price - $product_price/- BDT</p>
                                     <a href='index.php?add_to_cart=$product_id' class='btn fw-bold btn-primary mb-2'>Add to cart</a>
-                                    <a href='#' class='btn fw-bold btn-primary mb-2'>Add to wishlist</a>
+                                    <a href='index.php?add_to_wishlist=$product_id' class='btn fw-bold btn-primary mb-2'>Add to wishlist</a>
                                 </div>
                             </div>
                         </div>";
                 }
         }  
         }
-
     // Getting categories
         function getcategories(){
             global $con;
@@ -75,7 +73,6 @@
                     echo " <li class='nav-item'><a href='index.php?category=$category_id' class='nav-link' style='color:#FFFFFF;'>$category_name</a></li>";
                 }
         }
-
     // Searching products
         function search_product(){
             global $con;
@@ -102,15 +99,13 @@
                                     <p class='card-text'>$product_description</p>
                                     <p class='card-text fw-bold'>Price - $product_price/- BDT</p>
                                     <a href='index.php?add_to_cart=$product_id' class='btn btn-primary mb-2'>Add to cart</a>
-                                    <a href='#' class='btn btn-primary mb-2'>Add to wishlist</a>
+                                    <a href='index.php?add_to_wishlist=$product_id' class='btn btn-primary mb-2'>Add to wishlist</a>
                                 </div>
                             </div>
                         </div>";
                 }
             }
-
         }
-
     // Get all Products
         function get_all_products(){
             global $con;
@@ -133,33 +128,26 @@
                                     <p class='card-text'>$product_description</p>
                                     <p class='card-text fw-bold'>Price - $product_price/- BDT</p>
                                     <a href='index.php?add_to_cart=$product_id' class='btn btn-primary mb-2 fw-bold'>Add to cart</a>
-                                    <a href='#' class='btn btn-primary mb-2 fw-bold'>Add to wishlist</a>
+                                    <a href='index.php?add_to_wishlist=$product_id' class='btn btn-primary mb-2 fw-bold'>Add to wishlist</a>
                                 </div>
                             </div>
                         </div>";
                 }
         }
         }
-    
-    
     // Getting IP
         function getIPAddress() {  
-            //whether ip is from the share internet  
             if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
                         $ip = $_SERVER['HTTP_CLIENT_IP'];  
-                }  
-            //whether ip is from the proxy  
+                }
             elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
                         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];  
-            }  
-        //whether ip is from the remote address  
+            } 
             else{  
                     $ip = $_SERVER['REMOTE_ADDR'];  
             }  
             return $ip;  
         }
-        // $ip = getIPAddress();  
-        // echo 'User Real IP Address - '.$ip; 
     // Cart
         function cart() {
             if(isset($_SESSION['user_id'])) {
@@ -167,29 +155,22 @@
                     global $con;
                     $cart_id = $_SESSION['user_id'];
                     $get_product_id = $_GET['add_to_cart'];
-                    // Check if the product is already in the cart
                     $select_query = "SELECT * FROM cart WHERE cart_id='$cart_id' AND product_id=$get_product_id";
                     $result_query = mysqli_query($con, $select_query);
                     $num_of_rows = mysqli_num_rows($result_query);
                     if($num_of_rows > 0) {
-                        // Update quantity if already in cart
                         $update_query = "UPDATE cart SET quantity = quantity + 1 WHERE cart_id=$cart_id AND product_id=$get_product_id";
                         $result_update = mysqli_query($con, $update_query);
                     } else {
-                        // Insert product into cart if not already added
                         $insert_query = "INSERT INTO cart (product_id, quantity, cart_id) VALUES ($get_product_id, 1, $cart_id)";
                         $result_query = mysqli_query($con, $insert_query);
                     }
-
-                    // Check if the item is in the wishlist and remove it if exists
                     $wishlist_check_query = "SELECT * FROM wishlist WHERE wishlist_id='$cart_id' AND product_id=$get_product_id";
                     $wishlist_check_result = mysqli_query($con, $wishlist_check_query);
                     if(mysqli_num_rows($wishlist_check_result) > 0) {
-                        // If the product is found in the wishlist, remove it
                         $delete_wishlist_query = "DELETE FROM wishlist WHERE wishlist_id='$cart_id' AND product_id=$get_product_id";
                         $run_delete_wishlist = mysqli_query($con, $delete_wishlist_query);
                     }
-
                     echo "<script>alert('Item has been added to cart')</script>";
                     echo "<script>window.open('index.php', '_self')</script>";
                 }
@@ -200,8 +181,6 @@
                 }
             }
         }
-
-
     // Get total items in cart
         function cart_items(){
             if(isset($_GET['add_to_cart'])){
@@ -224,7 +203,6 @@
                 }
             return $count_cart_items;
             }
-        
     // Getting total cart price
         function total_cart_price() {
             global $con;
@@ -254,7 +232,6 @@
                     echo "Product with ID $product_id not found.";
                 }
             }
-            // Output the total price
             return $total_price;
         }
         
@@ -285,11 +262,9 @@
                 }
             }
         }
-
     // Get user id
         if(isset($_SESSION['user_id'])){
             $user_id=$_SESSION['user_id'];}
-    
     // Wishlist
         function wishlist() {
             if(isset($_SESSION['user_id'])) {
@@ -297,28 +272,20 @@
                     global $con;
                     $wishlist_id = $_SESSION['user_id'];
                     $get_product_id = $_GET['add_to_wishlist'];
-
-                    // Check if the product is already in the cart
                     $cart_check_query = "SELECT * FROM cart WHERE cart_id='$wishlist_id' AND product_id=$get_product_id";
                     $cart_check_result = mysqli_query($con, $cart_check_query);
                     $num_of_rows_cart = mysqli_num_rows($cart_check_result);
-
                     if($num_of_rows_cart > 0) {
-                        // If the product is already in the cart, do not allow adding to wishlist
                         echo "<script>alert('Item is already in the cart. Cannot add to wishlist.')</script>";
                         echo "<script>window.open('index.php','_self')</script>";
                     } else {
-                        // Check if the product is already in the wishlist
                         $select_query = "SELECT * FROM wishlist WHERE wishlist_id='$wishlist_id' AND product_id=$get_product_id";
                         $result_query = mysqli_query($con, $select_query);
                         $num_of_rows = mysqli_num_rows($result_query);
-
                         if($num_of_rows > 0) {
-                            // If the product is already in the wishlist, show a message
                             echo "<script>alert('Item is already in the wishlist')</script>";
                             echo "<script>window.open('index.php','_self')</script>";
                         } else {
-                            // Insert product into wishlist if not already added
                             $insert_query = "INSERT INTO wishlist (product_id, wishlist_id) VALUES ($get_product_id, $wishlist_id)";
                             $result_query = mysqli_query($con, $insert_query);
                             echo "<script>alert('Item has been added to wishlist')</script>";
@@ -333,7 +300,6 @@
                 }
             }
         }
-
     // Get total items in wishlist
         function wishlist_items(){
             if(isset($_GET['add_to_wishlist'])){

@@ -19,9 +19,10 @@ include('Functions/common_function.php');
     <div class="container-fluid p-0">
         <!-- Navbar -->
             <?php include("./Includes/navbar.php")?>
-        <!-- Calling cart -->
+        <!-- Calling cart and wishlist -->
             <?php
                 cart();
+                wishlist();
             ?>
         <!-- Welcome Dialogue -->
             <?php include("./Includes/welcome.php")?>
