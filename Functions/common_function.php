@@ -196,7 +196,7 @@
             } else {
                 if(isset($_GET['add_to_cart'])) {
                     echo "<script>alert('Please login first.')</script>";
-                    echo "<script>window.open('users/user_login.php','_self')</script>";
+                    echo "<script>window.open('Users/user_login.php','_self')</script>";
                 }
             }
         }
@@ -329,7 +329,7 @@
             } else {
                 if(isset($_GET['add_to_wishlist'])) {
                     echo "<script>alert('Please login first.')</script>";
-                    echo "<script>window.open('users/user_login.php','_self')</script>";
+                    echo "<script>window.open('Users/user_login.php','_self')</script>";
                 }
             }
         }

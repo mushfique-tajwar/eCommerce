@@ -40,11 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_fullname`, `admin_username`, `admin_email`, `admin_password`) VALUES
-(3, 'Mushfique Tajwar', 'rutab', 'rutab@gmail.com', 'rutab'),
-(4, 'Aryan Rayeen Rahman', 'aryan', 'aryan@gmail.com', 'aryan'),
-(5, 'Sajid Aryan Sami', 'sajid', 'sajid@gmail.com', 'sajid'),
-(6, 'Pranto Roy', 'pranto', 'pranto@gmail.com', 'pranto'),
-(7, 'Ramisa Rahman 1', 'ramisa1', 'ramisa1@gmail.com', 'ramisa1');
+(3, 'Mushfique Tajwar', 'rutab', 'rutab@gmail.com', 'rutab');
 
 -- --------------------------------------------------------
 

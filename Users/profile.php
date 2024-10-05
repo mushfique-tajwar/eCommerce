@@ -101,7 +101,7 @@ include('../Functions/common_function.php');
                                     <a class='nav-link active fw-bold' aria-current='page' href='#'><h4 class='fw-bold my-5'>$user_full_name</h4></a>
                                 </li>
                                 <li class='nav-item text-center p-4'>
-                                    <img src='profile_pictures/$user_image' class='propic rounded' alt=''>
+                                    <img src='Profile_pictures/$user_image' class='propic rounded' alt=''>
                                 </li>";
                             ?>
                             <li class="nav-item">

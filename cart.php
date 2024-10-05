@@ -103,7 +103,7 @@ include('Functions/common_function.php');
                                 {
                                     echo "<h4 class='px-3'>Subtotal: <strong> $final_price </strong></h4>
                                     <input type='submit' value='Continue Shopping' class='bg-warning px-2 m-1 border-0' name='continue_shopping'>
-                                    <button class='bg-warning px-2 m-1 border-0'><a href='./users/checkout.php' class='text-decoration-none text-dark'>Checkout</a></button>
+                                    <button class='bg-warning px-2 m-1 border-0'><a href='./Users/checkout.php' class='text-decoration-none text-dark'>Checkout</a></button>
                                     <input type='submit' value='Remove selected items' class='bg-warning px-2 m-1 border-0' name='remove_cart'>";
                                 }
                             else{

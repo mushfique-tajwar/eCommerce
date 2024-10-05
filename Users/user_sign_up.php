@@ -128,15 +128,10 @@
             $insert_query="INSERT INTO users (user_full_name,user_name,user_email,user_phone,user_image,user_address,user_ip,user_password) VALUES ('$user_full_name','$user_name','$user_email','$user_phone','$user_image','$user_address','$user_ip','$hash_password')";
             $sql_execute=mysqli_query($con,$insert_query);
             if($sql_execute){
-                echo "<script>alert('Data inserted')</script>";
+                echo "<script>alert('Account created successfully!! Proceed to login page.')</script>";
             }
             else{
                 die(mysqli_error($con));
             }}
-
-            // selecting cart items
-            
-
-
         }
     ?>

@@ -12,7 +12,7 @@
                 <li class="nav-item">
                     <?php if(isset($_SESSION['user_name'])){
                         echo
-                        "<a class='nav-link fw-bold' href='users/profile.php'>User</a>";}
+                        "<a class='nav-link fw-bold' href='Users/profile.php'>User</a>";}
                     else
                         {echo
                         "<a class='nav-link fw-bold' href='./Users/user_login.php'>User</a>";}

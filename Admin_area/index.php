@@ -44,7 +44,7 @@ if (!isset($_SESSION['admin_username'])) {
         <!-- Top -->
             <nav class="navbar navbar-expand-lg navbar-light bg-warning">
                 <div class="container-fluid">
-                    <img src="../images/Logo.png" alt="" class="Logo">
+                    <img src="../Images/Logo.png" alt="" class="Logo">
                     <nav class="navbar navbar-expand-lg">
                         <ul class="navbar-nav">
                         <?php  
@@ -66,7 +66,7 @@ if (!isset($_SESSION['admin_username'])) {
                 <div class="md-12 bg-secondary p-1 d-flex align-items-center">
                     <div class="button text-center p-3">
                         <button class="my-3 rounded">
-                            <a href="Insert_Product.php" class="nav-link text-dark bg-warning p-3 fw-bold">Insert Products</a>
+                            <a href="Insert_product.php" class="nav-link text-dark bg-warning p-3 fw-bold">Insert Products</a>
                         </button>
                         <button class="my-3 rounded">
                             <a href="index.php?view_products" class="nav-link text-dark bg-warning p-3 fw-bold">View Products</a>
@@ -137,8 +137,10 @@ if (!isset($_SESSION['admin_username'])) {
                 ?>
             </div>
             <!--footer-->
-            <?php include("../Includes/footer.php")  ?>
-    </div>
+                <div class="bg-warning text-center p-3">
+                    <p class='fw-bold'>Made by <a href="../me.php">Mushfique Tajwar</a></p>
+                </div>
+        </div>
 
 <!-- bootstrap css link --> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  

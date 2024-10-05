@@ -1,11 +1,9 @@
-<!-- Connect -->
 <?php
-include('Includes/connect.php');
-include('Functions/common_function.php');
-if(isset($_SESSION['user_id'])){
-    $wishlist_id=$_SESSION['user_id'];}
+    include('Includes/connect.php');
+    include('Functions/common_function.php');
+    if(isset($_SESSION['user_id'])){
+        $wishlist_id=$_SESSION['user_id'];}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,22 +24,17 @@ if(isset($_SESSION['user_id'])){
 </head>
 <body>
     <div class="container-fluid p-0">
-        <!-- Navbar -->
             <?php include("./Includes/navbar.php")?>
-        <!-- Calling wishlist -->
             <?php
                 wishlist();
             ?>
-        <!-- Welcome Dialogue -->
             <?php include("./Includes/welcome.php")?>
             <h1 class="text-center fw-bold m-4 p-4">Your wishlist</h1>
-        <!-- Table -->
             <div class="container">
                 <div class="row">
                     <form action="" method="post">
                     <table class="table table-bordered text-center m-4 p-4">
                         <tbody>
-                            <!-- php for dynamic data -->
                                 <?php
                                     global $con;
                                     if(isset($_SESSION['user_id'])){
@@ -112,7 +105,6 @@ if(isset($_SESSION['user_id'])){
                 </div>
             </div>
             </form>
-        <!-- Function to remove items -->
             <?php
                 function remove_wishlist_item(){
                     global $con;
@@ -132,50 +124,33 @@ if(isset($_SESSION['user_id'])){
                     }
                 }
                 echo remove_wishlist_item();
-
                 function wishlist_to_cart(){
                     global $con;
                     
                     if(isset($_POST['wishlist_to_cart'])){
-                        // Check if any items are selected
                         if(isset($_POST['remove_item']) && is_array($_POST['remove_item'])){
-                            // Get the wishlist_id from the session
                             if(isset($_SESSION['user_id'])){
                                 $wishlist_id = $_SESSION['user_id'];
                             }
-                
-                            // Loop through each selected product and add it to the cart
                             foreach($_POST['remove_item'] as $remove_id){
-                                // Insert into cart table
                                 $insert_query = "INSERT INTO cart (product_id, quantity, cart_id) VALUES ($remove_id, 1, $wishlist_id)";
                                 $run_insert = mysqli_query($con, $insert_query);
-                
-                                // Check if the insertion was successful
                                 if(!$run_insert){
                                     echo "<script>alert('Failed to add item with Product ID: $remove_id to cart');</script>";
                                     return;
                                 }
-                
-                                // Delete the item from the wishlist after adding it to the cart
                                 $delete_query = "DELETE FROM wishlist WHERE product_id=$remove_id";
                                 $run_delete = mysqli_query($con, $delete_query);
-                
-                                // Check if the deletion was successful
                                 if(!$run_delete){
                                     echo "<script>alert('Failed to remove item with Product ID: $remove_id from wishlist');</script>";
                                     return;
                                 }
                             }
-                
-                            // After processing all items, reload the page
                             echo "<script>window.open('wishlist.php','_self')</script>";
                         }
                     }
                 }
-                
-                // Call the function to process form submission
                 echo wishlist_to_cart();
-
             ?>
         <!-- Footer -->
             <?php include("./Includes/footer.php")?>
