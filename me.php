@@ -30,7 +30,7 @@
         <h2 class="mb-5">mushfique.tajwar.bd@gmail.com</h2>
         <h2 class="mb-5">rutab.591@gmail.com</h2>
         <h2 class="mb-5">
-            <a href="https://github.com/rutaaaaab">GitHub</a>
+            <a href="https://github.com/mushfique-tajwar">GitHub</a>
         </h2>
         <h2 class="mb-5">
             <a href="https://www.linkedin.com/in/mushfique-tajwar/">LinkedIn</a>
