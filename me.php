@@ -35,9 +35,6 @@
         <h2 class="mb-5">
             <a href="https://www.linkedin.com/in/mushfique-tajwar/">LinkedIn</a>
         </h2>
-        <h2 class="mb-5">
-            <a href="https://www.instagram.com/rutaaaaab/">Instagram</a>
-        </h2>
     </div>
 </body>
 </html>
